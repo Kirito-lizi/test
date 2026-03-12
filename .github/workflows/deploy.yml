@@ -37,6 +37,7 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: ""
           NEXT_PUBLIC_SITE_URL: "https://kirito.fun"
+          NEXT_PUBLIC_JUDGE_API_URL: "http://47.110.134.77:8080/api/judge"
         run: npm run build
 
       - name: Upload artifact

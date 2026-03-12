@@ -33,6 +33,12 @@ export default function Home() {
           >
             联系我
           </Link>
+          <Link
+            href="/leetcode"
+            className="inline-flex items-center justify-center rounded-full border border-cyan-300/50 bg-cyan-400/10 px-5 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-400/20"
+          >
+            刷 LeetCode 100
+          </Link>
         </div>
       </section>
 

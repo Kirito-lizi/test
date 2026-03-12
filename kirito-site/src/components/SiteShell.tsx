@@ -18,6 +18,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
             </Link>
 
             <nav className="hidden items-center gap-1 text-sm text-white/80 md:flex">
+              <NavLink href="/leetcode">刷题</NavLink>
               <NavLink href="/projects">项目</NavLink>
               <NavLink href="/blog">博客</NavLink>
               <NavLink href="/resume">经历</NavLink>
