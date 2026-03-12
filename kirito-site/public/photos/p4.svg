@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#fb7185" stop-opacity="0.16"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="#05070f"/>
+  <rect x="80" y="80" width="1040" height="640" rx="28" fill="url(#g)" stroke="rgba(130,170,255,0.35)" stroke-width="2"/>
+  <path d="M190 560 C 260 420, 380 420, 450 560 S 640 700, 740 520 S 980 420, 1030 560" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="6" />
+  <text x="110" y="140" fill="rgba(255,255,255,0.72)" font-family="ui-sans-serif, system-ui" font-size="34">Photo Placeholder</text>
+</svg>
