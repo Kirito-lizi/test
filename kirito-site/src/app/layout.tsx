@@ -1,24 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteShell } from "@/components/SiteShell";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: {
-    default: "Kirito | 个人网站",
+    default: "Kirito | 清新自然的技术博客",
     template: "%s | Kirito",
   },
-  description: "作品集、博客、经历与联系方式。",
+  description:
+    "Kirito 的个人博客与作品集，包含博客、项目、刷题记录、经历与联系信息。",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com"),
 };
 
@@ -29,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

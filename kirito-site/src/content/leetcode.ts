@@ -7,7 +7,6 @@ export type LeetCodeProblem = {
   tags: string[];
 };
 
-// 这里先列出示例题目，你可以按自己刷的 100 题来替换
 export const leetcodeProblems: LeetCodeProblem[] = [
   {
     id: 1,
@@ -49,5 +48,12 @@ export const leetcodeProblems: LeetCodeProblem[] = [
     url: "https://leetcode.cn/problems/longest-palindromic-substring/",
     tags: ["字符串", "动态规划"],
   },
+  {
+    id: 15,
+    slug: "3sum",
+    title: "15. 三数之和",
+    level: "中等",
+    url: "https://leetcode.cn/problems/3sum/",
+    tags: ["排序", "双指针"],
+  },
 ];
-

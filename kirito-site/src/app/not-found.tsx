@@ -4,10 +4,10 @@ import { Card } from "@/components/ui/Card";
 export default function NotFound() {
   return (
     <div className="mx-auto max-w-xl">
-      <Card>
+      <Card revealOrder={0}>
         <h1 className="text-lg font-semibold text-white/95">页面不存在</h1>
         <p className="mt-2 text-sm text-white/65">
-          你访问的地址可能已移动或拼写错误。
+          你访问的地址可能已经移动，或者链接写错了。
         </p>
         <div className="mt-5">
           <Link
@@ -21,4 +21,3 @@ export default function NotFound() {
     </div>
   );
 }
-
