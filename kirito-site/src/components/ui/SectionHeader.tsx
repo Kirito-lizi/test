@@ -22,10 +22,10 @@ export function SectionHeader({
       }
     >
       <div>
-        <h2 className="font-display text-2xl font-semibold tracking-tight text-white/95 md:text-3xl">
+        <h2 className="font-display text-2xl font-semibold tracking-tight text-white/90 md:text-3xl">
           {title}
         </h2>
-        {desc ? <p className="mt-1 text-sm text-white/65 md:text-base">{desc}</p> : null}
+        {desc ? <p className="mt-1 text-sm text-white/55 md:text-base">{desc}</p> : null}
       </div>
       {right ? <div className="shrink-0">{right}</div> : null}
     </div>

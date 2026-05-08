@@ -50,7 +50,7 @@ export default function ProjectsPage() {
             {project.href ? (
               <div className="mt-4">
                 <a
-                  className="text-sm text-emerald-100/85 transition hover:text-emerald-50"
+                  className="text-sm text-[#a8b4ff]/85 transition hover:text-[#c8d0ff]"
                   href={project.href}
                   target="_blank"
                   rel="noreferrer"

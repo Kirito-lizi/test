@@ -3,9 +3,9 @@ export const profile = {
   title: "Java / Web 全栈开发者",
   bio: "喜欢把复杂系统拆成清晰、稳定、顺滑的体验，从后端架构到前端动效都追求完整度。",
   location: "Shanghai, China",
-  email: "you@example.com",
+  email: "2558333862@qq.com",
   links: {
-    github: "https://github.com/",
+    github: "https://github.com/Kirito-lizi/web",
   },
 };
 
@@ -27,7 +27,7 @@ export const projects: Project[] = [
   },
   {
     name: "Java Judge Service",
-    desc: "面向刷题场景的在线判题服务，负责代码编译、沙箱执行、结果归档与接口设计。",
+    desc: "在线代码判题服务，负责代码编译、沙箱执行、结果归档与接口设计。",
     tags: ["Java", "Spring Boot", "Docker", "API"],
     href: "#",
     year: "2025",
@@ -100,7 +100,7 @@ export const timeline: TimelineItem[] = [
     title: "全栈开发",
     org: "个人项目 / 技术博客",
     desc: "持续打磨个人网站、内容体系和交互表现，聚焦 Web 体验与工程质量。",
-    highlights: ["负责前后端联调与页面设计", "强调视觉表达与代码可维护性", "持续迭代博客与刷题系统"],
+    highlights: ["负责前后端联调与页面设计", "强调视觉表达与代码可维护性", "持续迭代博客系统"],
   },
   {
     time: "2025 - 2026",

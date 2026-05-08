@@ -20,7 +20,7 @@ export default function ContactPage() {
           <h1 className="text-base font-semibold text-white/95">邮箱</h1>
           <p className="mt-2 text-sm text-white/65">
             <a
-              className="text-emerald-100/85 transition hover:text-emerald-50"
+              className="text-[#a8b4ff]/85 transition hover:text-[#c8d0ff]"
               href={`mailto:${profile.email}`}
             >
               {profile.email}
@@ -32,7 +32,7 @@ export default function ContactPage() {
           <h1 className="text-base font-semibold text-white/95">GitHub</h1>
           <p className="mt-2 text-sm text-white/65">
             <a
-              className="text-emerald-100/85 transition hover:text-emerald-50"
+              className="text-[#a8b4ff]/85 transition hover:text-[#c8d0ff]"
               href={profile.links.github}
               target="_blank"
               rel="noreferrer"

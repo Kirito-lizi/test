@@ -1,158 +1,138 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import {
-  useEffect,
-  useEffectEvent,
-  useRef,
-  useState,
-  type CSSProperties,
-} from "react";
 
-const DEFAULT_POINTER = { x: 50, y: 42, active: false };
-
-const seeds = Array.from({ length: 12 }, (_, index) => ({
-  id: index,
-  left: `${6 + index * 8}%`,
-  top: `${18 + (index % 5) * 10}%`,
-  delay: `${index * -1.35}s`,
-  duration: `${12 + (index % 4) * 2}s`,
-}));
-
-const droplets = Array.from({ length: 5 }, (_, index) => ({
-  id: index,
-  left: `${12 + index * 18}%`,
-  top: `${16 + (index % 3) * 18}%`,
-  size: `${70 + (index % 3) * 28}px`,
-  delay: `${index * -1.6}s`,
-}));
-
-export function LandingPortal() {
-  const [pointer, setPointer] = useState(DEFAULT_POINTER);
-  const frameRef = useRef<number | null>(null);
-
-  const updatePointer = useEffectEvent((event: PointerEvent) => {
-    const next = {
-      x: Number(((event.clientX / window.innerWidth) * 100).toFixed(2)),
-      y: Number(((event.clientY / window.innerHeight) * 100).toFixed(2)),
-      active: true,
-    };
-
-    if (frameRef.current !== null) {
-      cancelAnimationFrame(frameRef.current);
-    }
-
-    frameRef.current = window.requestAnimationFrame(() => {
-      setPointer(next);
-      frameRef.current = null;
-    });
-  });
-
-  const resetPointer = useEffectEvent(() => {
-    if (frameRef.current !== null) {
-      cancelAnimationFrame(frameRef.current);
-    }
-
-    frameRef.current = window.requestAnimationFrame(() => {
-      setPointer(DEFAULT_POINTER);
-      frameRef.current = null;
-    });
-  });
-
-  useEffect(() => {
-    window.addEventListener("pointermove", updatePointer, { passive: true });
-    window.addEventListener("blur", resetPointer);
-
-    return () => {
-      window.removeEventListener("pointermove", updatePointer);
-      window.removeEventListener("blur", resetPointer);
-
-      if (frameRef.current !== null) {
-        cancelAnimationFrame(frameRef.current);
-      }
-    };
-  }, []);
-
-  const sceneShiftX = ((pointer.x - 50) / 50) * 18;
-  const sceneShiftY = ((pointer.y - 45) / 45) * 14;
-  const panelRotateX = ((pointer.y - 50) / 50) * -7;
-  const panelRotateY = ((pointer.x - 50) / 50) * 9;
-
-  const rootStyle = {
-    "--pointer-x": `${pointer.x}%`,
-    "--pointer-y": `${pointer.y}%`,
-    "--pointer-glow": pointer.active ? "1" : "0.7",
-  } as CSSProperties;
+function StarField() {
+  const stars = Array.from({ length: 60 }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 55}%`,
+    size: Math.random() < 0.8 ? 1 : 2,
+    delay: `${Math.random() * 5}s`,
+    duration: `${2 + Math.random() * 3}s`,
+  }));
 
   return (
-    <main className="landing-page" style={rootStyle}>
-      <div
-        aria-hidden="true"
-        className="landing-scene"
-        style={{
-          transform: `translate3d(${sceneShiftX * -0.35}px, ${sceneShiftY * -0.2}px, 0) scale(1.03)`,
-        }}
-      >
-        <div className="scene-sun" />
-        <div className="scene-aura" />
-        <div className="scene-ridge scene-ridge-back" />
-        <div className="scene-ridge scene-ridge-mid" />
-        <div className="scene-river" />
-        <div className="scene-ridge scene-ridge-front" />
-        <div className="scene-mist scene-mist-top" />
-        <div className="scene-mist scene-mist-bottom" />
-        <div className="scene-glow scene-glow-left" />
-        <div className="scene-glow scene-glow-right" />
+    <div aria-hidden="true" className="star-field">
+      {stars.map((star) => (
+        <span
+          key={star.id}
+          className="star"
+          style={{
+            left: star.left,
+            top: star.top,
+            width: star.size,
+            height: star.size,
+            animationDelay: star.delay,
+            animationDuration: star.duration,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
-        {seeds.map((seed) => (
-          <span
-            key={seed.id}
-            className="scene-seed"
-            style={
-              {
-                "--seed-left": seed.left,
-                "--seed-top": seed.top,
-                "--seed-delay": seed.delay,
-                "--seed-duration": seed.duration,
-              } as CSSProperties
-            }
-          />
-        ))}
+function Clouds() {
+  const clouds = [
+    { id: 1, left: "-10%", top: "15%", width: "45%", delay: "0s", duration: "45s" },
+    { id: 2, left: "30%", top: "8%", width: "35%", delay: "-15s", duration: "55s" },
+    { id: 3, left: "60%", top: "20%", width: "40%", delay: "-30s", duration: "50s" },
+    { id: 4, left: "-5%", top: "35%", width: "30%", delay: "-10s", duration: "60s" },
+    { id: 5, left: "70%", top: "12%", width: "25%", delay: "-25s", duration: "48s" },
+  ];
+
+  return (
+    <div aria-hidden="true" className="cloud-layer">
+      {clouds.map((cloud) => (
+        <div
+          key={cloud.id}
+          className="cloud"
+          style={{
+            left: cloud.left,
+            top: cloud.top,
+            width: cloud.width,
+            animationDelay: cloud.delay,
+            animationDuration: cloud.duration,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function ShootingStar() {
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive(true);
+      setTimeout(() => setActive(false), 1500);
+    }, 8000 + Math.random() * 7000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  if (!active) return null;
+
+  const startLeft = 20 + Math.random() * 60;
+  const startTop = 5 + Math.random() * 25;
+
+  return (
+    <div
+      aria-hidden="true"
+      className="shooting-star"
+      style={{
+        left: `${startLeft}%`,
+        top: `${startTop}%`,
+      }}
+    />
+  );
+}
+
+function ScrollIndicator() {
+  return (
+    <div className="scroll-indicator">
+      <Link href="/blog" className="scroll-link">
+        <span className="scroll-arrow" />
+        <span className="scroll-text">探索更多</span>
+      </Link>
+    </div>
+  );
+}
+
+export function LandingPortal() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <main className="sunset-hero">
+      <div aria-hidden="true" className="sunset-sky" />
+      <div aria-hidden="true" className="sunset-horizon" />
+      <div aria-hidden="true" className="sunset-sea" />
+      <div aria-hidden="true" className="sunset-glow" />
+
+      {mounted && <StarField />}
+      {mounted && <Clouds />}
+      {mounted && <ShootingStar />}
+
+      <div className="sunset-content">
+        <h1 className="sunset-title">
+          Kirito 的个人博客
+        </h1>
+        <p className="sunset-motto">
+          Stay hungry, stay foolish.
+        </p>
+        <div className="sunset-divider" />
+        <p className="sunset-subtitle">
+          记录技术、设计与生活的碎片
+        </p>
       </div>
 
-      <section
-        className="liquid-glass-panel"
-        aria-label="Kirito 博客入口"
-        style={{
-          transform: `perspective(1400px) rotateX(${panelRotateX.toFixed(2)}deg) rotateY(${panelRotateY.toFixed(2)}deg) translate3d(0, 0, 0)`,
-        }}
-      >
-        <div aria-hidden="true" className="liquid-glass-shine" />
-        <div aria-hidden="true" className="liquid-glass-edge" />
-        <div aria-hidden="true" className="liquid-glass-ripple" />
-
-        {droplets.map((droplet) => (
-          <span
-            key={droplet.id}
-            aria-hidden="true"
-            className="liquid-droplet"
-            style={
-              {
-                "--drop-left": droplet.left,
-                "--drop-top": droplet.top,
-                "--drop-size": droplet.size,
-                "--drop-delay": droplet.delay,
-              } as CSSProperties
-            }
-          />
-        ))}
-
-        <h1 className="landing-title">这是Kirito的博客</h1>
-      </section>
-
-      <Link href="/blog" className="landing-enter-button">
-        进入博客
-      </Link>
+      <ScrollIndicator />
 
       <footer className="landing-footer">
         <a

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
-export function NavLink({ href, children }: { href: string; children: ReactNode }) {
+export function NavLink({ href, children, onClick }: { href: string; children: ReactNode; onClick?: () => void }) {
   const pathname = usePathname();
   const isActive =
     pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
@@ -12,6 +12,7 @@ export function NavLink({ href, children }: { href: string; children: ReactNode 
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={[
         "rounded-full px-3 py-1.5 transition",
         isActive

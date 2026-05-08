@@ -1,0 +1,29 @@
+node_modules/
+.ssh/
+.claude/
+%USERPROFILE%/
+
+# Deployment scripts (contain credentials)
+deploy-server.js
+deploy.tar.gz
+ssh-connect*.ps1
+ssh-pty.js
+ssh-setup-key.js
+ssh-test.js
+
+# Temporary/test files
+test-api*.js
+test-blog.html
+test-home.html
+mysql-*.js
+nginx-*.js
+restart-server.js
+init-data*.js
+generate-*.js
+
+# Server-side code (deployed separately)
+kirito-server/
+
+# OS files
+.DS_Store
+Thumbs.db

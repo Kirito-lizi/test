@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #071711;
-  --foreground: #f5fbf6;
-  --muted: #b7c8bd;
-  --card: rgba(255, 255, 255, 0.1);
-  --card-border: rgba(216, 239, 224, 0.18);
-  --accent: #97f0c2;
-  --accent-strong: #6cd5ab;
+  --background: #0a0e1a;
+  --foreground: #e8eaf0;
+  --muted: #a0a8c0;
+  --card: rgba(20, 25, 45, 0.6);
+  --card-border: rgba(120, 140, 255, 0.15);
+  --accent: #7c8cfd;
+  --accent-strong: #ff8c42;
   --font-sans-stack:
     "Segoe UI Variable", "PingFang SC", "Microsoft YaHei", "Helvetica Neue",
     Arial, sans-serif;
@@ -38,16 +38,16 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at top, rgba(152, 244, 200, 0.1), transparent 34%),
-    radial-gradient(circle at 15% 20%, rgba(82, 159, 139, 0.18), transparent 26%),
-    radial-gradient(circle at 85% 15%, rgba(124, 212, 180, 0.1), transparent 24%),
-    linear-gradient(180deg, #0d2118 0%, #081812 46%, #07120e 100%);
+    radial-gradient(circle at top, rgba(124, 140, 253, 0.08), transparent 34%),
+    radial-gradient(circle at 15% 20%, rgba(255, 140, 66, 0.06), transparent 26%),
+    radial-gradient(circle at 85% 15%, rgba(100, 120, 220, 0.08), transparent 24%),
+    linear-gradient(180deg, #0c1020 0%, #0a0e1a 46%, #070a12 100%);
   color: var(--foreground);
   font-family: var(--font-sans-stack);
 }
 
 ::selection {
-  background: rgba(130, 226, 182, 0.28);
+  background: rgba(124, 140, 253, 0.28);
 }
 
 .font-display {
@@ -66,9 +66,9 @@ body {
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(55rem 28rem at var(--pointer-x, 30%) 0%, rgba(236, 255, 244, 0.14), transparent 55%),
-    radial-gradient(40rem 24rem at 20% 100%, rgba(76, 140, 118, 0.22), transparent 60%),
-    radial-gradient(34rem 20rem at 100% 30%, rgba(124, 204, 180, 0.12), transparent 60%);
+    radial-gradient(55rem 28rem at var(--pointer-x, 30%) 0%, rgba(124, 140, 253, 0.1), transparent 55%),
+    radial-gradient(40rem 24rem at 20% 100%, rgba(255, 140, 66, 0.08), transparent 60%),
+    radial-gradient(34rem 20rem at 100% 30%, rgba(100, 120, 220, 0.08), transparent 60%);
   pointer-events: none;
 }
 
@@ -78,8 +78,8 @@ body {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 20%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 50%, rgba(255, 255, 255, 0.02));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 20%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent 50%, rgba(255, 255, 255, 0.01));
   mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
   pointer-events: none;
 }
@@ -99,7 +99,7 @@ body {
   left: -6rem;
   width: 20rem;
   height: 20rem;
-  background: rgba(118, 213, 175, 0.24);
+  background: rgba(124, 140, 253, 0.18);
 }
 
 .site-shell-glow-b {
@@ -107,7 +107,7 @@ body {
   bottom: 8rem;
   width: 24rem;
   height: 24rem;
-  background: rgba(120, 172, 228, 0.16);
+  background: rgba(255, 140, 66, 0.12);
   animation-delay: -9s;
 }
 
@@ -117,9 +117,9 @@ body {
   width: 32rem;
   height: 10rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent, rgba(236, 255, 248, 0.22), transparent);
+  background: linear-gradient(90deg, transparent, rgba(180, 190, 255, 0.15), transparent);
   filter: blur(36px);
-  opacity: 0.32;
+  opacity: 0.28;
   pointer-events: none;
   animation: streakDrift 20s ease-in-out infinite;
 }
@@ -137,8 +137,8 @@ body {
 
 .site-shell-header {
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
-    0 20px 60px rgba(5, 29, 20, 0.18);
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 20px 60px rgba(5, 10, 35, 0.25);
 }
 
 .site-shell-main {
@@ -159,8 +159,8 @@ body {
   border-radius: 999px;
   background:
     radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.95), transparent 38%),
-    linear-gradient(135deg, #d7fff1, #8de0b9 65%, #5dbb95);
-  box-shadow: 0 0 20px rgba(151, 240, 194, 0.7);
+    linear-gradient(135deg, #a8b4ff, #7c8cfd 65%, #5a6fd6);
+  box-shadow: 0 0 20px rgba(124, 140, 253, 0.6);
 }
 
 .site-shell-entry {
@@ -472,7 +472,7 @@ body {
 .landing-footer {
   position: fixed;
   left: 50%;
-  bottom: clamp(3.8rem, 8vw, 5rem);
+  bottom: 1.2rem;
   z-index: 5;
   transform: translateX(-50%);
   font-size: 0.8rem;
@@ -489,6 +489,226 @@ body {
 .landing-footer a:hover {
   color: rgba(255, 255, 255, 0.95);
   text-decoration: underline;
+}
+
+/* ===== Sunset Hero ===== */
+.sunset-hero {
+  position: relative;
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a0e2a 0%, #1a1538 25%, #2d1b4e 40%, #4a2b5e 52%, #6b3a4a 62%, #8b4a3a 68%, #3a2a5a 75%, #0f1729 100%);
+}
+
+.sunset-sky {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 55%, rgba(255, 140, 66, 0.35), transparent 70%),
+    radial-gradient(ellipse 60% 30% at 45% 50%, rgba(255, 180, 100, 0.25), transparent 60%),
+    radial-gradient(ellipse 40% 20% at 55% 48%, rgba(255, 220, 150, 0.15), transparent 50%);
+  pointer-events: none;
+}
+
+.sunset-horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 180, 100, 0.4), rgba(255, 220, 150, 0.6), rgba(255, 180, 100, 0.4), transparent);
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+.sunset-sea {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30%;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 41, 0.3) 0%, rgba(10, 14, 26, 0.9) 60%, #070a12 100%),
+    linear-gradient(90deg, transparent 20%, rgba(255, 180, 100, 0.04) 40%, rgba(255, 220, 150, 0.06) 50%, rgba(255, 180, 100, 0.04) 60%, transparent 80%);
+  pointer-events: none;
+}
+
+.sunset-glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50vw;
+  height: 30vh;
+  background: radial-gradient(ellipse, rgba(255, 160, 80, 0.12), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* Stars */
+.star-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 999px;
+  background: white;
+  opacity: 0;
+  animation: starTwinkle ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.8; }
+}
+
+/* Clouds */
+.cloud-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  height: 3rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 200, 180, 0.08), rgba(255, 220, 200, 0.12), rgba(255, 200, 180, 0.08), transparent);
+  filter: blur(20px);
+  animation: cloudDrift linear infinite;
+}
+
+@keyframes cloudDrift {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(200vw); }
+}
+
+/* Shooting Star */
+.shooting-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: white;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.6);
+  animation: shoot 1.5s ease-out forwards;
+  pointer-events: none;
+}
+
+.shooting-star::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), transparent);
+  transform: translateY(-50%);
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(120px, 120px) rotate(-45deg);
+  }
+}
+
+/* Content */
+.sunset-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.sunset-title {
+  font-family: var(--font-sans-stack);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+}
+
+.sunset-motto {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+}
+
+.sunset-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  margin: 1.5rem auto;
+}
+
+.sunset-subtitle {
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.65);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.1em;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: clamp(3.5rem, 8vw, 5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scroll-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 300ms ease;
+}
+
+.scroll-link:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(8px); }
 }
 
 [data-reveal] {
